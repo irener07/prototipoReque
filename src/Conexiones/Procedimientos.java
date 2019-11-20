@@ -9,7 +9,6 @@ import java.sql.CallableStatement;
 import java.sql.SQLException;
 import java.sql.Blob;
 import java.text.ParseException;
-import Utilidades.Correo;
 
 public class Procedimientos {
 
