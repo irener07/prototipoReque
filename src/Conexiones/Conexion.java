@@ -16,7 +16,7 @@ public class Conexion {
     static Connection contacto = null;
     
     public static Connection getConexion(){
-        String url = "jdbc:sqlserver://FAMILIA-PICADO\\PROGRA01BD:1433;databaseName=RentaCar";
+        String url = "jdbc:sqlserver://FAMILIA-PICADO\\:1433;databaseName=PrototipoR";
         //El url es el nombre de la conexion a la base de datos que esta en servicio/Databases
         
         try{
