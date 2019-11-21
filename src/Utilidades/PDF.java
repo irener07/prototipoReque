@@ -73,8 +73,8 @@ public class PDF {
             }
             document.add(tablaProductos);
             document.add(new Paragraph("Sub Total:  "+datosFactura.get(8)+"\n"));
-            document.add(new Paragraph("I.V.:  "+datosFactura.get(9)+"\n"));
-            document.add(new Paragraph("Imp. Servicios:  "+datosFactura.get(10)+"\n"));
+            document.add(new Paragraph("I.V.A.:  "+datosFactura.get(9)+"\n"));
+            document.add(new Paragraph("Impuestos Servicios:  "+datosFactura.get(10)+"\n"));
             document.add(new Paragraph("Total:  "+datosFactura.get(11)+"\n"));
             document.add(new Paragraph("Detalle de Pago"+"\n\n"));
             String[] columnasPago = new String[]{"Monto","Tipo Pago","Detalle"};
@@ -98,7 +98,7 @@ public class PDF {
             document.add(tablaPago);
             document.close();
             
-            Correo.enviarCorreoReserva(correo, ruta + "/Desktop/FacturaCliente.pdf");
+            Correo.enviarCorreoFactura(correo, ruta + "/Desktop/FacturaCliente.pdf");
             
             JOptionPane.showMessageDialog(null, "La factura PDF se ha enviado", "Exito", JOptionPane.INFORMATION_MESSAGE);
         } catch (DocumentException | FileNotFoundException ex) {

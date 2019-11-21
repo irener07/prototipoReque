@@ -12,14 +12,14 @@ import java.util.LinkedList;
  * @author Gabriel
  */
 public class Compras {
-    static LinkedList compraPrueba = new LinkedList();
+    public static LinkedList compraPrueba = new LinkedList();
     
     public static void simularCompra(){
         compraPrueba.add("1276");
         compraPrueba.add("12345678765432123");
-        compraPrueba.add("23456787654321234567876543");
-        compraPrueba.add("21/03/2019");
-        compraPrueba.add("02:01 PM");
+        compraPrueba.add("2345234567876543");
+        compraPrueba.add("2019-03-12");
+        compraPrueba.add("02:01");
         compraPrueba.add("Reynaldo Picadillo Vega");
         compraPrueba.add("345678765");
         LinkedList productos = new LinkedList();

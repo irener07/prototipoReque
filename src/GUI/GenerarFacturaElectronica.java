@@ -5,17 +5,20 @@
  */
 package GUI;
 
+import Conexiones.ConnectionSQL;
 import GUI.ModuloFacturaElectronica;
-import Conexiones.Conexion;
-import java.io.IOException;
+import Utilidades.*;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Vector;
+import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 
 
 public class GenerarFacturaElectronica extends javax.swing.JFrame {
 
+    private static ResultSet res;
     /**
      * Creates new form GenerarFactura
      */
@@ -117,6 +120,26 @@ public class GenerarFacturaElectronica extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        Compras.simularCompra();
+        PDF.crearPDF(Compras.compraPrueba, "ronaldopv08@gmail.com");
+        try {
+            res=ConnectionSQL.createConsult("insert into factura2 values('"+Compras.compraPrueba.get(0)+
+                    "','"+Compras.compraPrueba.get(1)+"','"+Compras.compraPrueba.get(2)+"','"+Compras.compraPrueba.get(3)+"','"
+                    +Compras.compraPrueba.get(4)+"','"+Compras.compraPrueba.get(5)+"','"+Compras.compraPrueba.get(6)+"','"
+                    +Compras.compraPrueba.get(8)+"','"+Compras.compraPrueba.get(9)+"','"+Compras.compraPrueba.get(10)+"','"
+                    +Compras.compraPrueba.get(11)+"',26000,'Tarjeta Credito','VISA 020578')");
+            
+            res=ConnectionSQL.createConsult("insert into listaProductosFactura2 values('1276', '1','2')");
+            res=ConnectionSQL.createConsult("insert into listaProductosFactura2 values('1276', '2','3')");
+            res=ConnectionSQL.createConsult("insert into listaProductosFactura2 values('1276', '3','10')");
+            res=ConnectionSQL.createConsult("insert into producto values('1', 'Pilsen','6000')");
+            res=ConnectionSQL.createConsult("insert into producto values('2', 'Bavaria','8000')");
+            res=ConnectionSQL.createConsult("insert into producto values('3', 'Imperial','12000')");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(GenerarFacturaElectronica.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Error al Obtener los Datos de la Factura", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
